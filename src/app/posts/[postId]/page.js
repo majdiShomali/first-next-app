@@ -1,20 +1,14 @@
-import React from 'react'
-
-const PostDetails = async ({params}) => {
-    const response = await  fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`,
-{
-// cache:"no-store"
-next:{
-  revalidate: 120 //sec
-}
-}
-)
-const post= await response.json()
+import PostDetails from '@/app/components/postDetails'
+import { Suspense } from 'react'
+const PostDetailsPage = async ({params}) => {
+const loadingJsx=(<div>loading+++++</div>)
   return (<>
-    <div>PostDetails id {params.postId}</div>
-    <div>title {post.title}</div>
-    <div>body {post?.body}</div>
+    <div>PostDetails </div>
+   
+   <Suspense fallback={loadingJsx}>  
+   <PostDetails params={params}/>
+   </Suspense>
   </>
   )
 }
-export default PostDetails
+export default PostDetailsPage

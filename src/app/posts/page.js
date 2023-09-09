@@ -13,7 +13,7 @@ next:{
 )
 const toDo= await response.json()
 
-console.log(toDo.title)
+// console.log(toDo.title)
 
 const response0 = await  fetch('https://jsonplaceholder.typicode.com/posts',
 {
@@ -38,7 +38,7 @@ const jsxPosts = posts.map((post)=>{
     </>
   )
 })
-console.log(posts)
+// console.log(posts)
   return (
     <>
     <div>Post Page </div>
